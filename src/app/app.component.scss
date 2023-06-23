@@ -1,0 +1,53 @@
+.sidenav-container {
+  width: 100%;
+  height: 93.2vh;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.sidenav-content {
+  // display: flex;
+  // height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.inner-sidenav {
+  padding: 20px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+// Sidebar CSS
+.sidebar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+
+// change sidebar width & add padding (accent-color)
+.accent-sidebar .example-sidenav {
+  padding: 5px;
+  width: 350px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+.sidemenu button {
+  width: 100% !important;
+  padding: 28px !important;
+  border-radius: 0 !important;
+}
+
+::ng-deep .mat-mdc-button.mat-primary {
+  justify-content: start;
+  display: flex;
+}
+
+::ng-deep .mat-mdc-button.mat-primary:hover {
+  // background-color: #ffa8c5;
+  // background-color:rgba(237, 125, 245, 0.59);
+  color: #232222 !important;
+}

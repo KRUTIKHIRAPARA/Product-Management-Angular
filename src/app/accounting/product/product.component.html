@@ -1,0 +1,129 @@
+<mat-form-field class="w-100">
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Search Product" #input>
+</mat-form-field>
+<div class="mat-elevation-z8">
+  <table mat-table [dataSource]="dataSource">
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> {{element.position}} </td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="productCode">
+      <th mat-header-cell *matHeaderCellDef> Product Code </th>
+      <td mat-cell *matCellDef="let element"> {{element.productCode}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="productName">
+      <th mat-header-cell *matHeaderCellDef> Product Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.productName}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="productRate">
+      <th mat-header-cell *matHeaderCellDef> Product Rate </th>
+      <td mat-cell *matCellDef="let element"> {{element.productRate | currency:'INR'}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef> Action </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button style="color: green;" (click)="open(editProductContent)" matTooltip="Edit Product"
+          matTooltipPosition="left">
+          <mat-icon>edit</mat-icon>
+        </button>
+        <button mat-icon-button color="warn" matTooltip="Delete Product" matTooltipPosition="right">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[12]" showFirstLastButtons>
+  </mat-paginator>
+</div>
+
+
+<!-- Add Product Button -->
+<button mat-fab color="primary" class="add-product-btn" (click)="open(addProductContent)" matTooltip="Add Product"
+  matTooltipPosition="left">
+  <mat-icon>add</mat-icon>
+</button>
+
+
+<!-- Add Product Content Model  -->
+<ng-template #addProductContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Product Details</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+    <form class="mat-form">
+      <mat-form-field class="form-field-width" appearance="outline">
+        <mat-label>Product Code</mat-label>
+        <input matInput value="PRO/00001" disabled>
+      </mat-form-field>
+      <mat-form-field class="form-field-width" appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Enter Sell Product Name" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="form-field-width" appearance="outline">
+        <mat-label>Product Rate</mat-label>
+        <input matInput placeholder="Enter Sell Product Rate" autocomplete="off">
+      </mat-form-field>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button mat-mini-fab color="primary" (click)="modal.close()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" (click)="modal.close()">
+      <mat-icon>add</mat-icon>
+    </button>
+  </div>
+</ng-template>
+
+
+<!-- Edit Product Content Model  -->
+<ng-template #editProductContent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Product Details</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+
+    <form class="mat-form">
+      <mat-form-field class="form-field-width" appearance="outline">
+        <mat-label>Product Code</mat-label>
+        <input matInput value="PRO/00001" disabled>
+      </mat-form-field>
+      <mat-form-field class="form-field-width" appearance="outline">
+        <mat-label>Product Name</mat-label>
+        <input matInput placeholder="Enter Sell Product Name" autocomplete="off">
+      </mat-form-field>
+      <mat-form-field class="form-field-width" appearance="outline">
+        <mat-label>Product Rate</mat-label>
+        <input matInput placeholder="Enter Sell Product Rate" autocomplete="off">
+      </mat-form-field>
+    </form>
+
+  </div>
+  <div class="modal-footer">
+    <button mat-mini-fab color="primary" (click)="modal.close()">
+      <mat-icon>cancel</mat-icon>
+    </button>
+    <button mat-mini-fab color="primary" (click)="modal.close()">
+      <mat-icon>save</mat-icon>
+    </button>
+  </div>
+</ng-template>

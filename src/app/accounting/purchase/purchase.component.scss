@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+  }
+  
+  .mat-form {
+    // min-width: 150px;
+    // max-width: auto;
+    width: 100%;
+  }
+  
+  .form-field-width {
+    width: 100%;
+  }
+  
+  .add-product-btn {
+    position: fixed;
+    z-index: 1000;
+    bottom: 40px;
+    right: 40px;
+  }
+  
+  ::ng-deep .mat-mdc-paginator-container {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+  }
+
+  ::ng-deep .cdk-overlay-container {
+    z-index: 9999 !important;
+}
